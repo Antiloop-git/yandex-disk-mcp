@@ -93,6 +93,39 @@ npm run build
 }
 ```
 
+## Docker
+
+### Сборка образа
+
+```bash
+docker build -t yandex-disk-mcp .
+```
+
+### Запуск
+
+```bash
+docker run -i --rm -e YANDEX_DISK_TOKEN=ваш_oauth_токен yandex-disk-mcp
+```
+
+Или через docker-compose (токен из `.env` файла):
+
+```bash
+docker compose run --rm yandex-disk-mcp
+```
+
+### Настройка Claude Desktop с Docker
+
+```json
+{
+  "mcpServers": {
+    "yandex-disk": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "-e", "YANDEX_DISK_TOKEN=ваш_oauth_токен", "yandex-disk-mcp"]
+    }
+  }
+}
+```
+
 ## Примеры использования
 
 После подключения к MCP-клиенту можно просить:

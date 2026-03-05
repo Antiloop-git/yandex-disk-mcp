@@ -1,0 +1,6 @@
+services:
+  yandex-disk-mcp:
+    build: .
+    stdin_open: true
+    environment:
+      - YANDEX_DISK_TOKEN=${YANDEX_DISK_TOKEN}
